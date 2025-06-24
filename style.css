@@ -1,0 +1,340 @@
+:root {
+  --bg-color1: #212529;
+  --bg-color2: #2a2b2d;
+  --aqi-1: #81c784;
+  --aqi-2: #ffb74d;
+  --aqi-3: #ff7043;
+  --aqi-4: #ef5350;
+  --aqi-5: #e53935;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  min-height: 100vh;
+  background-color: var(--bg-color1);
+  color: #fff;
+  font-family: sans-serif;
+  padding: 0 15px;
+}
+hr {
+  margin-bottom: 10px;
+}
+.header {
+  position: sticky;
+  top: 0;
+  background-color: var(--bg-color1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 15px 0;
+  & #city_input {
+    background-color: var(--bg-color2);
+    border: none;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 25px;
+    color: #fff;
+    &:focus {
+      outline: none;
+    }
+  }
+  & #searchBtn {
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 25px;
+    background-color: #fafafa;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+      background-color: #343a40;
+    }
+  }
+  & #locationBtn {
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 25px;
+    background-color: #ea6e4b;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+      background-color: #343a40;
+    }
+  }
+}
+.card {
+  background-color: var(--bg-color2);
+  padding: 15px;
+  border-radius: 15px;
+  margin-bottom: 15px;
+  & h2 {
+    font-size: 32px;
+    font-weight: 500;
+  }
+  & p {
+    font-size: 14px;
+    color: #999;
+  }
+}
+.temperature-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.weather-icons {
+  margin-left: 10px;
+}
+
+.today-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: var(--bg-color2);
+  border-radius: 10px;
+}
+
+.today-cards .card {
+  flex: 1;
+  min-width: 150px;
+  padding: 15px;
+  background-color: var(--bg-color1);
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.today-cards .card:hover {
+  transform: translateY(-5px);
+}
+
+.today-cards .card-head p {
+  font-size: 16px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.today-cards .card-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.today-cards .card-item h2 {
+  font-size: 20px;
+  margin: 0;
+}
+
+.weather-data {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  & .weather-left {
+    grid-column: span 1;
+    & .current-weather {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      & h2 {
+        margin: 7px 0;
+      }
+      & p {
+        color: #fff;
+      }
+    }
+    & .card-footer p {
+      font-size: 14px;
+      margin-top: 10px;
+      margin-bottom: 12px;
+    }
+    & .forecast-item {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      place-items: center;
+      margin-top: 15px;
+      & .icon-wrapper {
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+  & .weather-right {
+    grid-column: span 3;
+    & h2 {
+      margin-bottom: 10px;
+    }
+    & .highlights {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      column-gap: 15px;
+      & .card:nth-of-type(1),
+      & .card:nth-of-type(2) {
+        grid-column: span 2;
+      }
+      & .card-head {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+        & .air-index {
+          color: #000;
+          padding: 5px 10px;
+          border-radius: 15px;
+          &.aqi-1 {
+            background-color: var(--aqi-1);
+          }
+          &.aqi-2 {
+            background-color: var(--aqi-2);
+          }
+          &.aqi-3 {
+            background-color: var(--aqi-3);
+          }
+          &.aqi-4 {
+            background-color: var(--aqi-4);
+          }
+          &.aqi-5 {
+            background-color: var(--aqi-5);
+          }
+        }
+      }
+      & .air-indices {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        place-items: center;
+        & p {
+          text-align: center;
+        }
+      }
+      & .sunrise-sunset {
+        display: flex;
+        padding: 10px;
+        gap: 25px;
+      }
+      & .card-item {
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+    & .hourly-forecast {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      column-gap: 10px;
+      & .card {
+        text-align: center;
+      }
+    }
+  }
+}
+@media (max-width: 1100px) {
+  .weather-data {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  & .weather-right {
+    grid-column: span 2;
+  }
+  & .highlights {
+    grid-template-columns: repeat(3, 1fr);
+    & .card:nth-of-type(1) {
+      grid-column: span 3;
+    }
+  }
+  & .hourly-forecast {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+@media (max-width: 1040px) {
+  .weather-data {
+    grid-template-columns: repeat(2, 1fr);
+
+    & .weather-right {
+      grid-column: span 1;
+      & .highlights {
+        grid-template-columns: repeat(2, 1fr);
+        & .card:nth-of-type(1) {
+          grid-column: span 2;
+        }
+      }
+      & .hourly-forecast {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+  }
+}
+@media(max-width: 992px){
+  .weather-data .weather-right .highlights{
+    & .card{
+      grid-column: span 2;
+    }
+    & .air-indices{
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+@media(max-width: 850px){
+  .weather-data {
+    grid-template-columns: 1fr;
+    & .weather-right .highlights{
+      & .card:nth-of-type(3),
+      & .card:nth-of-type(4),
+      & .card:nth-of-type(5),
+      & .card:nth-of-type(6),
+      & .card:nth-of-type(7){
+        grid-column: span 1;
+      }
+      & .air-indices {
+        grid-template-columns: repeat(5, 1fr);
+      }
+    }
+  }
+}
+@media(max-width: 660px){
+  .header{
+    flex-direction: column;
+    & h2{
+      margin-bottom: 8px;
+    }
+    & #city_input, #searchBtn, #locationBtn {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+  }
+}
+@media(max-width: 520px){
+  .weather-data .weather-right .highlights{
+    & .card:nth-of-type(1),
+    & .card:nth-of-type(2),
+    & .card:nth-of-type(3),
+    & .card:nth-of-type(4),
+    & .card:nth-of-type(5),
+    & .card:nth-of-type(6),
+    & .card:nth-of-type(7) {
+      grid-column: span 2;
+    }
+    & .air-indices {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+@media(max-width: 480px){
+  .weather-data .weather-right .highlights .sunrise-sunset{
+    grid-template-columns: 1fr;
+  }
+}
+@media(max-width: 450px){
+  .weather-data .weather-right .hourly-forecast{
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media(max-width: 480px){
+  .weather-data .weather-right .highlights .air-indices{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
