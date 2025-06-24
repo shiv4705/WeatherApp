@@ -38,10 +38,10 @@ WeatherApp is a modern, responsive weather application that provides real-time w
 ![Image](https://github.com/user-attachments/assets/5a0c9af8-7a44-408e-813a-aa2a7bdf696d)
 _Asking for location whenever we click on current location_
 
-![Image](https://github.com/user-attachments/assets/61ce8990-9af4-4ef9-89c4-8a2dcefc9f1a)
+![Image](https://github.com/user-attachments/assets/9c5d2607-baca-4f14-b597-f54c86aee593)
 _Temperature of current location with all other attributes_
 
-![Image](https://github.com/user-attachments/assets/9c5d2607-baca-4f14-b597-f54c86aee593)
+
 _Temperature of different location with all other attributes_
 
 
