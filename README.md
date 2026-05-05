@@ -1,18 +1,5 @@
 # WeatherApp
 
-_COMPANY_: CODTECH IT SOLUTIONS
-
-_NAME_: SHIV PATEL
-
-_INTERN ID_: CT06DL588
-
-_DOMAIN_: MERN STACK WEB DEVELOPMENT
-
-_DURATION_: 6 WEEKS
-
-_MENTOR_: NEELA SANTOSH
-
-
 WeatherApp is a modern, responsive weather application that provides real-time weather updates, a 5-day forecast, hourly temperature trends, air quality index (AQI) details, and sunrise/sunset times. Built with HTML, CSS, and JavaScript, the app integrates with the OpenWeatherMap API to deliver comprehensive weather insights at your fingertips.
 
 ## Features
